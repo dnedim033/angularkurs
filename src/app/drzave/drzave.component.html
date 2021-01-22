@@ -1,0 +1,37 @@
+<p>Nedim </p>
+<div class = "container">
+    <input type="text" [(ngModel)]="terminZaPretragu"/>
+    <button class="btn btn-primary" (click)="Pretrazi()">Pretraži</button>
+<button></button>
+
+<table class = "table table-striped">
+    <thead>
+
+            <tr>
+                <th>Ime</th>
+                <th>Domena</th>
+                <th>Broj stanovnika</th>
+                <th>Jezik </th>
+                <th>Zastava</th>
+                
+                
+            </tr>
+    </thead>
+<tbody>
+
+    <tr  *ngFor="let drzave of sveDrzave">
+
+        <td >{{drzave.name}}</td>
+        <td>{{drzave.topLevelDomain}}</td>
+        <td>{{drzave.population|number}}</td>
+        <td> <p *ngFor= "let jezik of drzave.languages">{{jezik.name}} {{jezik.nativename}}</p></td>
+        <td>{{drzave.subregion}}</td> 
+        <td><img src = "{{drzave.flag}}" height="50px"> </td>
+       
+
+    </tr>
+</tbody>
+   
+</table>
+
+</div>

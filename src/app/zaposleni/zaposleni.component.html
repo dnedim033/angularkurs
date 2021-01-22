@@ -1,0 +1,31 @@
+ <div class="container">
+  <div>
+      <mat-form-field>
+        <input matInput placeholder="Unesite termin za pretragu" type="text" [(ngModel)]="terminPretrage">
+       
+      </mat-form-field>
+          <button mat-raised-button color="primary" (click)="Pretrazi()">Pretrazi</button>
+  </div>
+
+    <button class="btn btn-outline-primary" (click)="SviZaposlenici()">Svi zaposlenici</button> 
+    <button class="btn btn-outline-primary" *ngFor='let mjesto of radnaMjesta' (click)="FiltrirajZaposlene(mjesto)">
+      {{ mjesto }} </button>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ime</th>
+          <th>Starost</th>
+          <th>Radno mjesto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let zaposleni of sviZaposleniciZaDisplay">
+          <td> {{ zaposleni.ime }} </td>
+          <td> {{ zaposleni.starost }} </td>
+          <td> {{ zaposleni.radnoMjesto }} </td>
+        </tr>
+      </tbody>
+    </table>
+    <button mat-raised-button (click)="noviZaposleni()">Novi zaposleni</button>
+ </div>
